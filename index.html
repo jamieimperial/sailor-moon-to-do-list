@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f8f3ff" />
+    <meta name="description" content="A magical little space for today's missions." />
+    <title>Moonlist — Today, with a little magic</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar" aria-label="Moonlist">
+        <a class="brand" href="#" aria-label="Moonlist home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>moonlist</span>
+        </a>
+        <div class="topbar-right">
+          <span class="top-note"><span class="status-dot"></span> A little magic for today</span>
+          <button class="sound-toggle" id="sound-toggle" type="button" aria-label="Turn sound off" title="Turn sound off">
+            <svg class="sound-on-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 8v4h3l4 3V5L6 8H3Z"/><path d="M13 7a4 4 0 0 1 0 6M15 5a7 7 0 0 1 0 10"/></svg>
+            <svg class="sound-off-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 8v4h3l4 3V5L6 8H3Z"/><path d="m13 8 4 4m0-4-4 4"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <section class="todo-panel" aria-labelledby="page-title">
+        <div class="intro">
+          <p class="eyebrow"><span class="sun-icon" aria-hidden="true">✦</span> YOUR DAILY MISSION</p>
+          <h1 id="page-title">Today<span class="title-period">✦</span></h1>
+          <p class="date-line" id="date-line"></p>
+        </div>
+
+        <div class="progress-card" aria-live="polite">
+          <div class="progress-copy">
+            <div class="progress-title" id="progress-title">A fresh start.</div>
+            <div class="progress-subtitle" id="progress-subtitle">Small steps add up. Pick one to begin.</div>
+          </div>
+          <div class="progress-ring" id="progress-ring" role="img" aria-label="0% complete">
+            <svg viewBox="0 0 48 48" aria-hidden="true">
+              <circle class="ring-track" cx="24" cy="24" r="20"></circle>
+              <circle class="ring-value" cx="24" cy="24" r="20"></circle>
+            </svg>
+            <span id="progress-percent">0%</span>
+          </div>
+          <div class="progress-bar" aria-hidden="true"><span id="progress-fill"></span></div>
+        </div>
+
+        <div class="section-heading">
+          <h2>My list <span class="task-count" id="task-count">0</span></h2>
+          <span class="section-hint">ONE THING AT A TIME</span>
+        </div>
+
+        <form class="add-form" id="add-form">
+          <label class="sr-only" for="new-task">Add a task</label>
+          <span class="add-icon" aria-hidden="true">+</span>
+          <input id="new-task" name="task" type="text" maxlength="120" placeholder="What would you like to get done?" autocomplete="off" />
+          <button type="submit" class="add-button" aria-label="Add task">
+            <span>Add task</span>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M10 4l6 6-6 6" /></svg>
+          </button>
+        </form>
+
+        <div class="task-list" id="active-list" aria-label="Tasks to do"></div>
+        <div class="empty-state" id="empty-state" hidden>
+          <span class="empty-icon" aria-hidden="true">☼</span>
+          <p class="empty-title">Nothing on the list.</p>
+          <p class="empty-copy">Enjoy the breathing room, or add something above.</p>
+        </div>
+
+        <section class="completed-section" id="completed-section" hidden aria-labelledby="completed-title">
+          <button class="completed-toggle" id="completed-toggle" type="button" aria-expanded="true" aria-controls="completed-list">
+            <span class="completed-toggle-left"><span class="completed-check" aria-hidden="true">✓</span><span id="completed-title">Done for today</span><span class="completed-count" id="completed-count">0</span></span>
+            <svg class="chevron" viewBox="0 0 20 20" aria-hidden="true"><path d="m5 7.5 5 5 5-5" /></svg>
+          </button>
+          <div class="task-list completed-list" id="completed-list" aria-label="Completed tasks"></div>
+        </section>
+
+        <footer class="panel-footer"><span>Made with a little moonlight</span><span class="footer-sparkle" aria-hidden="true">✦</span></footer>
+      </section>
+      <p class="page-note">Make today a little magical.</p>
+    </main>
+    <div class="sr-only" id="announcer" role="status" aria-live="polite" aria-atomic="true"></div>
+  </body>
+</html>
